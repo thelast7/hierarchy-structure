@@ -8,15 +8,13 @@ export default class LoginPage extends Component {
     authToken: ''
   }
 
-  handleChangeInput = (e) => {
-    console.log('eee', e.target.value)
-    // let target = {e}
+  handleChangeInput = e => {
     this.setState({
       [e.target.id]: e.target.value
     })
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault()
     this.requestDataToServer()
   }
@@ -50,6 +48,7 @@ export default class LoginPage extends Component {
 
   render() {
     if(this.state.authToken) return <Redirect to="/" />
+
     return (
       <div className="container">
         <div className="row">
@@ -61,7 +60,6 @@ export default class LoginPage extends Component {
                 <input
                   id="username"
                   className="form-control"
-                  type="text"
                   placeholder="Insert your username"
                   value={this.state.username}
                   onChange={this.handleChangeInput}
